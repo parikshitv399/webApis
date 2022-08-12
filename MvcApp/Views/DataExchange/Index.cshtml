@@ -1,0 +1,17 @@
+﻿<h2>Accessing Session: @Session["LoginEmail"]</h2>
+<h2>@ViewBag.Title</h2>
+<span style=" display:block"><bold>Username: </bold></span>@ViewBag.Username
+<br />
+<span><b>Age: </b></span>@ViewBag.Age
+<hr />
+<h3>Displaying shopping items</h3>
+<ul>
+    @{
+        foreach (var item in ViewBag.ShoppingItems)
+        {
+            <li>@item</li>
+        }
+    }
+</ul>
+<hr/>
+<h3><a href="/DataExchange/UsingSessionData">Navigating to other action</a> | <a href="/DataExchange/UsingViewData">Navigating to ViewData</a></h3>.

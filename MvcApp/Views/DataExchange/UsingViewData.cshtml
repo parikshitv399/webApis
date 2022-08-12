@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "UsingViewData";
+}
+
+<h2>Welcome @ViewData["Username"]!</h2>
+<hr/>
+<h2>Accessing Session: @Session["LoginEmail"]</h2>
+<hr/>
+<span>
+    Welcome to KPMG Mr./Ms. @ViewData["Name"]. 
+    We are glad to inform you that your employee ID has been generated as @ViewData["EmpID"].
+    We are glad to inform that you are eligible for following nominations if you perform well.
+</span>
+<ul>
+    @{ 
+        foreach (var item in (List<string>)ViewData["Awards"])
+        {
+            <li>@item</li>
+        }
+    }
+</ul>
