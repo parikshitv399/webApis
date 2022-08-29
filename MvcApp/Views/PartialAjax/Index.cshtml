@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @{
+        var view = Html.Partial("_ShowItems", new MvcApp.Models.UserOps().GetAll());
+    }
+    @view
+</div>
+@{Html.RenderAction("Details", "User", new { Username = "parikshitverma" });} @*Add a parameter: , new {username = parikshit}*@

@@ -13,6 +13,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddDbContext<FirstApiContext>(options =>
          options.UseSqlServer(builder.Configuration.GetConnectionString("FirstApiContext")));
+builder.Services.AddCors(
+    builder =>
+    {
+        builder.AddPolicy(name: "AllowOrigin", (corsPolicy) =>
+        {
+            corsPolicy.AllowAnyOrigin()
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
+        });
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,5 +37,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowOrigin");
 
 app.Run();

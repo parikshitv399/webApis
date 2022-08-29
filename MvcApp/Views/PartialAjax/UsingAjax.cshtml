@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "UsingAjax";
+}
+
+<h2>UsingAjax</h2>
+@using (Ajax.BeginForm("UsingAjax", new { username = "parikshitverma" }, new AjaxOptions
+{
+    HttpMethod = "Get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "ajaxDiv"
+}))
+{
+    <input type="submit" value="Search Admin" />
+}
+<div id="ajaxDiv">
+
+</div>
+
